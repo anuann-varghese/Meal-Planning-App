@@ -6,7 +6,7 @@ import Navbar from './layout/Navbar';
 
 function App() {
   return (
-    <div data-theme="dark" className="App flex flex-col h-screen">
+    <div data-theme="dark" className="App flex flex-col w-screen">
 
       <Navbar/>
       <div className="main flex flex-col grow ">
