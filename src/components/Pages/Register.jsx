@@ -1,5 +1,6 @@
 import Backendless from 'backendless'
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Register({email,setEmail,password,setPassword}) {
     function newUser(e){
@@ -13,7 +14,7 @@ function Register({email,setEmail,password,setPassword}) {
       }
 
   return (
-    <div className='flex justify-center items-center'>
+    <div className='flex justify-center items-center h-full'>
          <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
         <form onSubmit={newUser}  className="card-body">
         <div className="form-control">
@@ -30,7 +31,7 @@ function Register({email,setEmail,password,setPassword}) {
           
         </div>
         <div className="form-control mt-6">
-          <button type="submit" className="btn btn-primary">Register</button>
+          <Link to={"/login"} ><button type="submit" className="btn btn-primary">Register</button></Link>
         </div>
       </form>
       </div>

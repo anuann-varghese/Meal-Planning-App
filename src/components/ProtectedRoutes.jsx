@@ -6,13 +6,22 @@ function ProtectedRoutes({ loggedin, children }) {
   function clickHandler() {
     navigate("/login");
   }
+  function registerHandler(){
+    navigate("/register")
+  }
 
   if (!loggedin) {
-    return (
-      <button className="btn btn-secondary w-1/4" onClick={clickHandler}>
+    return (<div className="flex flex-col gap-20 justify-center h-full items-center">
+      <button className="btn btn-secondary w-60 " onClick={clickHandler}>
         You need to login
       </button>
-    );
+      <div className=" flex gap-10 h-1/4 items-center">
+      <p>Not a member yet ?</p>
+      <button onClick={registerHandler} className="btn btn-primary"> Register</button>
+      </div>
+      </div>
+      
+    )
   } else {
     return <>{children}</>;
   }

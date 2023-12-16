@@ -26,25 +26,32 @@ function MealPlan({ mealPlan, setMealPlan, setIngredient }) {
   }
 
   return (
-    <div className="flex flex-col gap-10">
-      <div className="flex flex-col gap-10 p-5 justify-around items-center">
+    <div className=" flex flex-col gap-10 items-center">
+      <div className="cartCard flex flex-col gap-6 p-5 justify-around items-center">
         {mealPlan &&
           mealPlan.map((i, j) => (
-            <div
-              key={j}
-              className=" flex w-full justify-around bg-stone-100 rounded-lg items-center"
-            >
-              <img width={50} src={i.strMealThumb} alt="" />
-              <p>{i.strMeal}</p>
-              <button onClick={() => deleteRecipe(i)}>
-                <ion-icon name="trash-outline"></ion-icon>{" "}
-              </button>
+            <div className=" card  card-compact w-60 bg-base-100 shadow-xl">
+              <figure>
+                <img src={i.strMealThumb} alt="Meal Picture" />
+              </figure>
+              <div className="card-body">
+                <h2 className="card-title"> {i.strMeal} </h2>
+
+                <div className="card-actions justify-end">
+                  <button
+                    onClick={() => deleteRecipe(i)}
+                    className="btn btn-primary"
+                  >
+                    Delete
+                  </button>
+                </div>
+              </div>
             </div>
           ))}
-        <button onClick={planSaver} className="btn btn-wide btn-primary">
-          Create Shopping list
-        </button>
       </div>
+      <button onClick={planSaver} className="btn btn-wide btn-primary">
+        Create Shopping list
+      </button>
     </div>
   );
 }

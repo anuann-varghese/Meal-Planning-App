@@ -18,7 +18,7 @@ function Login({ email, setEmail, password, setPassword, setLoggedin }) {
   }
 
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center h-full">
       <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
         <form onSubmit={loginUser} className="card-body">
           <div className="form-control">

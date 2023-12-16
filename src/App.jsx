@@ -24,6 +24,7 @@ function App() {
   const [password, setPassword] = useState();
   const [loggedin, setLoggedin]=useState(false)
   const [ingredient, setIngredient] = useState([])
+  
  
   const API_KEY=process.env.REACT_APP_API_KEY
   const API_ID=process.env.REACT_APP_API_ID
@@ -33,12 +34,12 @@ Backendless.initApp(API_ID , API_KEY );
   return (
     <div data-theme="cupcake" className="App flex flex-col w-screen h-screen ">
 
-      <Navbar loggedin={loggedin} setLoggedin={setLoggedin} />
+      <Navbar loggedin={loggedin} setLoggedin={setLoggedin}  />
       <div className="main flex flex-col grow ">
         <Routes>
         <Route path='/' element={<Home setRecipes={setRecipes} recipes={recipes} recipeId={recipeId} setRecipeId={setRecipeId} mealPlan={mealPlan} />} />
-        <Route path='/selectedrecipe' element={<SelectedRecipe recipeId={recipeId} selectedRecipe={selectedRecipe} setSelectedRecipe={setSelectedRecipe} mealPlan={mealPlan} setMealPlan={setMealPlan} ingredient={ingredient} setIngredient={setIngredient} />} />
-        <Route path='/mealPlan' element={ <ProtectedRoutes loggedin={loggedin}><MealPlan mealPlan={mealPlan} setMealPlan={setMealPlan} /></ProtectedRoutes>}/>
+        <Route path='/selectedrecipe' element={<SelectedRecipe recipeId={recipeId} selectedRecipe={selectedRecipe} setSelectedRecipe={setSelectedRecipe} mealPlan={mealPlan} setMealPlan={setMealPlan} ingredient={ingredient} setIngredient={setIngredient}  />} />
+        <Route path='/mealPlan' element={ <ProtectedRoutes loggedin={loggedin}><MealPlan mealPlan={mealPlan} setMealPlan={setMealPlan}  /></ProtectedRoutes>}/>
         <Route path='/groceries' element={ <ProtectedRoutes loggedin={loggedin}><Groceries mealPlan={mealPlan}loggedin={loggedin}  /></ProtectedRoutes> } />
         <Route path='/mealHistory' element={ <ProtectedRoutes loggedin={loggedin}><MealHistory  /></ProtectedRoutes> } />
         <Route path='/login' element={<Login email={email} setEmail={setEmail} password={password} setPassword={setPassword} setLoggedin={setLoggedin}/>}/>

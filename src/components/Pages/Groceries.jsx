@@ -23,15 +23,8 @@ function Groceries({ mealPlan, loggedin }) {
   console.log(arr);
 
   return (
-    <div className="flex justify-center p-10">
-      {loggedin ? (
-        <Link to={"/mealHistory"}>
-          <button className="btn btn-primary">Meal History</button>
-        </Link>
-      ) : (
-        <></>
-      )}
-      <div className="card w-96 bg-base-100 flex items-center shadow-xl">
+    <div className="mealHistory flex flex-col items-center gap-10 justify-center p-10">
+      <div className="mealHistoryCard card w-80 bg-base-100 flex items-center shadow-xl">
         <div className="card-body">
           <h2 className="card-title">Grocery list</h2>
           {arr.map((i, j) => (
@@ -47,6 +40,22 @@ function Groceries({ mealPlan, loggedin }) {
               {" "}
               <button className="btn btn-primary">Share</button>
             </a>
+          </div>
+        </div>
+      </div>
+
+      <div className="mealHistoryCard1 card card-compact w-80 bg-base-100 shadow-xl h-full">
+        <figure>
+          <img
+            src="https://images.unsplash.com/photo-1530554764233-e79e16c91d08?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODd8fGZvb2R8ZW58MHx8MHx8fDA%3D"
+            alt="Shoes"
+          />
+        </figure>
+        <div className="burgerCard card-body flex justify-center gap-10 ">
+          <h2 className="card-title">Hey there!</h2>
+          <p className=" text-xl ">Want to check out your meal plans so far?</p>
+          <div className="card-actions justify-end ">
+          <Link to={"/mealHistory"}> <button className="btn btn-primary">Meal History</button></Link> 
           </div>
         </div>
       </div>

@@ -27,11 +27,11 @@ function Home({ recipes, setRecipes, recipeId, setRecipeId, mealPlan }) {
   }
 
   return (
-    <div className="home flex ">
-      {/* sidebar */}
+    <div className="home flex  ">
+      
       <div className="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content flex flex-wrap gap-20 items-center justify-evenly">
+        <div className="drawer-content flex flex-wrap gap-20 items-center justify-evenly mt-10">
           <label
             htmlFor="my-drawer-2"
             className="btn btn-secondary drawer-button lg:hidden"
@@ -74,7 +74,7 @@ function Home({ recipes, setRecipes, recipeId, setRecipeId, mealPlan }) {
               mealPlan.map((i, j) => (
                 <div key={j} className="">
                   <li>
-                    <img width={50} src={i.strMealThumb} alt="" />{" "}
+                    <img width={70} src={i.strMealThumb} alt="" />{" "}
                     <p>{i.strMeal}</p>
                   </li>
                 </div>

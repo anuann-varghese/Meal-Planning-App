@@ -32,6 +32,33 @@ body{
   .recipeDetailDiv{
     flex-direction: row;
   }
+  .cartCard{
+    flex-direction: row;
+
+  }
+  .mealHistory{
+    flex-direction: row;
+    align-items: normal;
+  }
+  .mealHistoryCard{
+    width: 400px;
+    
+  }
+
+  .mealHistoryCard1{
+    width: 400px ;
+    height: fit-content;
+    
+  }
+
+  .mealPlanHistory{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    
+  }
+ 
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */

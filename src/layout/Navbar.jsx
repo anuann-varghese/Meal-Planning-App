@@ -2,7 +2,7 @@ import Backendless from "backendless";
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-function Navbar({ loggedin, setLoggedin }) {
+function Navbar({ loggedin, setLoggedin,isClicked }) {
   const navigate = useNavigate();
 
   function logoutUser() {
@@ -46,7 +46,7 @@ function Navbar({ loggedin, setLoggedin }) {
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">Easy Meals</a>
+        <a href="/" className="btn btn-ghost text-xl">Easy Meals</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
@@ -63,6 +63,7 @@ function Navbar({ loggedin, setLoggedin }) {
           </li>
         </ul>
       </div>
+     
       <div className="navbar-end">
         {loggedin ? (
           <button className="btn btn-secondary" onClick={logoutUser}>
