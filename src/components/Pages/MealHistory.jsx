@@ -31,7 +31,7 @@ function MealHistory() {
       <div className="mealPlanHistory flex flex-col gap-10  ">
         {userPlan &&
           userPlan.map((i, k) => (
-            <div className="card w-80 bg-neutral text-neutral-content ">
+            <div key={k} className="card w-80 bg-neutral text-neutral-content ">
               <div className="card-body items-center text-center">
                 <h2 className="card-title">Meal:{k++}</h2>
                 {i.map((j, l) => (

@@ -33,7 +33,7 @@ function SelectedRecipe({
       alert("Recipe already added");
     } else {
       setMealPlan((j) => [...j, selectedRecipe[0]]);
-      navigate("/");
+      navigate("/home");
     }
   }
 
@@ -57,7 +57,7 @@ function SelectedRecipe({
 
       {selectedRecipe &&
         selectedRecipe.map((i, j) => (
-          <div className="recipeDetailDiv flex flex-col gap-10">
+          <div key={j} className="recipeDetailDiv flex flex-col gap-10">
             <div key={j} className="card card-normal w-96 bg-base-100 shadow-xl">
               <figure>
                 <img src={i.strMealThumb} alt="Shoes" />
@@ -65,7 +65,7 @@ function SelectedRecipe({
               <div className="card-body flex gap-6">
                 <h2 className="card-title">{i.strMeal}</h2>
 
-                <Link to={"/"}>
+                <Link to={"/home"}>
                   <div className="badge badge-outline">Back to Recipes</div>
                 </Link>
 

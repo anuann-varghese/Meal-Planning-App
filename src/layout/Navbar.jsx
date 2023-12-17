@@ -2,7 +2,7 @@ import Backendless from "backendless";
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-function Navbar({ loggedin, setLoggedin,isClicked }) {
+function Navbar({ loggedin, setLoggedin }) {
   const navigate = useNavigate();
 
   function logoutUser() {
@@ -38,7 +38,7 @@ function Navbar({ loggedin, setLoggedin,isClicked }) {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a href="/">Home</a>
+              <a href="/home">Recipes</a>
             </li>
 
             <li>
@@ -46,21 +46,23 @@ function Navbar({ loggedin, setLoggedin,isClicked }) {
             </li>
           </ul>
         </div>
-        <a href="/" className="btn btn-ghost text-xl">Easy Meals</a>
+        <a href="/home" className="btn btn-ghost text-xl">Easy Meals</a>
       </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-          <li>
-            <a href="/">
-              <button className="btn btn-primary">Home</button>
+      <div className="navbar-center hidden lg:flex ">
+        <ul className="menu menu-horizontal px-1 flex gap-10">
+        <Link to={"/"}><button  className="btn btn-primary ">Home</button></Link>
+          {/* <li> */}
+            <a href="/home">
+              <button className="btn btn-primary">Recipes</button>
             </a>
-          </li>
+          {/* </li> */}
 
-          <li>
+          {/* <li> */}
             <Link to={"/groceries"}>
               <button className="btn btn-primary ">Groceries</button>
             </Link>
-          </li>
+          {/* </li> */}
+          
         </ul>
       </div>
      

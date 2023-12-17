@@ -58,6 +58,14 @@ body{
     gap: 20px;
     
   }
+
+  .introCard{
+    height: 75%;
+    flex-direction: row;
+  }
+  .introCardText{
+    width: 50%;
+  }
  
 }
 

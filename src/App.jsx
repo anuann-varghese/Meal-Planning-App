@@ -13,6 +13,7 @@ import Login from './components/Pages/Login';
 import Register from './components/Pages/Register';
 import ProtectedRoutes from './components/ProtectedRoutes';
 import MealHistory from './components/Pages/MealHistory';
+import Intro from './components/Pages/Intro';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
   const [password, setPassword] = useState();
   const [loggedin, setLoggedin]=useState(false)
   const [ingredient, setIngredient] = useState([])
+  const [category, setCategory] = useState()
   
  
   const API_KEY=process.env.REACT_APP_API_KEY
@@ -37,7 +39,8 @@ Backendless.initApp(API_ID , API_KEY );
       <Navbar loggedin={loggedin} setLoggedin={setLoggedin}  />
       <div className="main flex flex-col grow ">
         <Routes>
-        <Route path='/' element={<Home setRecipes={setRecipes} recipes={recipes} recipeId={recipeId} setRecipeId={setRecipeId} mealPlan={mealPlan} />} />
+          <Route path='/' element={<Intro/>}/>
+        <Route path='/home' element={<Home setRecipes={setRecipes} recipes={recipes} recipeId={recipeId} setRecipeId={setRecipeId} mealPlan={mealPlan} category={category} setCategory={setCategory} />} />
         <Route path='/selectedrecipe' element={<SelectedRecipe recipeId={recipeId} selectedRecipe={selectedRecipe} setSelectedRecipe={setSelectedRecipe} mealPlan={mealPlan} setMealPlan={setMealPlan} ingredient={ingredient} setIngredient={setIngredient}  />} />
         <Route path='/mealPlan' element={ <ProtectedRoutes loggedin={loggedin}><MealPlan mealPlan={mealPlan} setMealPlan={setMealPlan}  /></ProtectedRoutes>}/>
         <Route path='/groceries' element={ <ProtectedRoutes loggedin={loggedin}><Groceries mealPlan={mealPlan}loggedin={loggedin}  /></ProtectedRoutes> } />

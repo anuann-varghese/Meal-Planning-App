@@ -3,11 +3,14 @@ import Backendless from "backendless";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-function Home({ recipes, setRecipes, recipeId, setRecipeId, mealPlan }) {
+function Home({ recipes, setRecipes, recipeId, setRecipeId, mealPlan,category,setCategory }) {
   const navigate = useNavigate();
 
   function getRecipes() {
     axios(`https:/www.themealdb.com/api/json/v1/1/filter.php?c=Chicken`)
+    // axios(`https:/www.themealdb.com/api/json/v1/1/filter.php?c=${category}`)
+
+    
       .then((res) => {
         setRecipes((i) => res.data.meals);
         console.log(recipes);
@@ -25,6 +28,15 @@ function Home({ recipes, setRecipes, recipeId, setRecipeId, mealPlan }) {
     console.log(recipeId);
     navigate("/selectedrecipe");
   }
+  // function chickenSelector(Chicken){
+  //   setCategory(Chicken)
+  // }
+  // function breakfastSelector(Breakfast){
+  //   setCategory(Breakfast)
+  // }
+  // function dessertSelector(Dessert){
+  //   setCategory(Dessert)
+  // }
 
   return (
     <div className="home flex  ">
@@ -39,6 +51,13 @@ function Home({ recipes, setRecipes, recipeId, setRecipeId, mealPlan }) {
             View Your Meal Plan
           </label>
           {/* Page content here */}
+          {/* <div>
+            <button onClick={()=>chickenSelector(Chicken)}>Chicken</button>
+            <button onClick={()=>breakfastSelector(Breakfast)}>Breakfast</button>
+            <button onClick={()=>dessertSelector(Dessert)}>Dessert</button>
+
+          </div> */}
+          
           {recipes &&
             recipes.map((item, k) => (
               <div key={k} className=" ">

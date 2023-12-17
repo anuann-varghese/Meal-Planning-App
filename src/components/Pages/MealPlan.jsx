@@ -30,7 +30,7 @@ function MealPlan({ mealPlan, setMealPlan, setIngredient }) {
       <div className="cartCard flex flex-col gap-6 p-5 justify-around items-center">
         {mealPlan &&
           mealPlan.map((i, j) => (
-            <div className=" card  card-compact w-60 bg-base-100 shadow-xl">
+            <div key={j} className=" card  card-compact w-60 bg-base-100 shadow-xl">
               <figure>
                 <img src={i.strMealThumb} alt="Meal Picture" />
               </figure>

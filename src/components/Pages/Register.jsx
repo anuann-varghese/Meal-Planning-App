@@ -1,8 +1,9 @@
 import Backendless from 'backendless'
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 function Register({email,setEmail,password,setPassword}) {
+    const navigate=useNavigate()
     function newUser(e){
         e.preventDefault()
         const User1=new Backendless.User()
@@ -11,6 +12,7 @@ function Register({email,setEmail,password,setPassword}) {
         Backendless.UserService.register( User1 )
     .then( res=>{console.log(res)} )
     .catch( err=>{console.log(err);} );
+    navigate("/login")
       }
 
   return (
@@ -27,11 +29,11 @@ function Register({email,setEmail,password,setPassword}) {
           <label className="label">
             <span className="label-text">Password</span>
           </label>
-          <input onChange={(e)=>setPassword(e.target.value)} type="password" placeholder="password" className="input input-bordered" required />
+          <input  onChange={(e)=>setPassword(e.target.value)} type="password" placeholder="password" className="input input-bordered" required />
           
         </div>
         <div className="form-control mt-6">
-          <Link to={"/login"} ><button type="submit" className="btn btn-primary">Register</button></Link>
+          <button type="submit" className="btn btn-primary">Register</button>
         </div>
       </form>
       </div>
