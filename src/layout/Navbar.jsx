@@ -2,7 +2,7 @@ import Backendless from "backendless";
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-function Navbar({ loggedin, setLoggedin }) {
+function Navbar({ loggedin, setLoggedin,setMealPlan }) {
   const navigate = useNavigate();
 
   function logoutUser() {
@@ -11,6 +11,8 @@ function Navbar({ loggedin, setLoggedin }) {
       .catch((erro) => console.log(erro));
     setLoggedin(false);
     navigate("/");
+    setMealPlan([])
+    
   }
 
   return (

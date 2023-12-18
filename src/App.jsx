@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import Home from './components/Pages/Home';
 import Footer from './layout/Footer';
@@ -14,6 +14,9 @@ import Register from './components/Pages/Register';
 import ProtectedRoutes from './components/ProtectedRoutes';
 import MealHistory from './components/Pages/MealHistory';
 import Intro from './components/Pages/Intro';
+import axios from 'axios';
+
+
 
 
 function App() {
@@ -33,10 +36,30 @@ function App() {
   
 Backendless.serverURL = "https://eu-api.backendless.com"
 Backendless.initApp(API_ID , API_KEY );
+
+
+
+// 
+function getRecipes() {
+  axios(`https:/www.themealdb.com/api/json/v1/1/filter.php?c=Chicken`)
+  // axios(`https:/www.themealdb.com/api/json/v1/1/filter.php?c=${category}`)
+
+  
+    .then((res) => {
+      setRecipes((i) => res.data.meals);
+      console.log(recipes);
+    })
+
+    .catch((err) => console.log(err));
+}
+
+useEffect(() => {
+  getRecipes();
+}, []);
   return (
     <div data-theme="cupcake" className="App flex flex-col w-screen h-screen ">
 
-      <Navbar loggedin={loggedin} setLoggedin={setLoggedin}  />
+      <Navbar loggedin={loggedin} setLoggedin={setLoggedin} setMealPlan={setMealPlan}  />
       <div className="main flex flex-col grow ">
         <Routes>
           <Route path='/' element={<Intro/>}/>

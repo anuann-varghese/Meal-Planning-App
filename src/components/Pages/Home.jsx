@@ -6,22 +6,22 @@ import { Link, useNavigate } from "react-router-dom";
 function Home({ recipes, setRecipes, recipeId, setRecipeId, mealPlan,category,setCategory }) {
   const navigate = useNavigate();
 
-  function getRecipes() {
-    axios(`https:/www.themealdb.com/api/json/v1/1/filter.php?c=Chicken`)
-    // axios(`https:/www.themealdb.com/api/json/v1/1/filter.php?c=${category}`)
+  // function getRecipes() {
+  //   axios(`https:/www.themealdb.com/api/json/v1/1/filter.php?c=Chicken`)
+  //   // axios(`https:/www.themealdb.com/api/json/v1/1/filter.php?c=${category}`)
 
     
-      .then((res) => {
-        setRecipes((i) => res.data.meals);
-        console.log(recipes);
-      })
+  //     .then((res) => {
+  //       setRecipes((i) => res.data.meals);
+  //       console.log(recipes);
+  //     })
 
-      .catch((err) => console.log(err));
-  }
+  //     .catch((err) => console.log(err));
+  // }
 
-  useEffect(() => {
-    getRecipes();
-  }, []);
+  // useEffect(() => {
+  //   getRecipes();
+  // }, []);
 
   function getRecipeId(id) {
     setRecipeId((i) => id);
